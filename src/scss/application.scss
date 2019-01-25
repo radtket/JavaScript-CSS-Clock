@@ -1,63 +1,66 @@
+$color-red: #de243b;
+$color-white: #fafafa;
+$color-black-dark: #000000;
+$color-black-medium: #252525;
+$color-black-light: #313131;
+
 html {
-  background: #fafafa url("../img/background.jpg");
-  background-size: cover;
-  font-family: 'helvetica neue';
-  text-align: center;
-  font-size: 10px;
+	background: $color-white url("../img/background.jpg");
+	background-size: cover;
+	font-family: "helvetica neue";
+	font-size: 10px;
+	text-align: center;
 }
 
 body {
-  margin: 0;
-  font-size: 2rem;
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
+	align-items: center;
+	display: flex;
+	flex: 1;
+	font-size: 2rem;
+	margin: 0;
+	min-height: 100vh;
 }
 
 .clock {
-  background: #313131;
-  width: 30rem;
-  height: 30rem;
-  border: 20px solid #252525;
-  border-radius: 50%;
-  margin: 50px auto;
-  position: relative;
-  padding: 2rem;
-  box-shadow: 0 0 0 4px rgba(0,0,0,0.1), inset 0 0 0 3px #313131, inset 0 0 10px black, 0 0 10px rgba(0,0,0,0.2);
-  &__face {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-3px);
-    /* account for the height of the clock hands */
-  }
+	background: $color-black-light;
+	border: 20px solid $color-black-medium;
+	border-radius: 50%;
+	box-shadow: 0 0 0 4px rgba($color-black-dark, 0.1), inset 0 0 0 3px $color-black-light, inset 0 0 10px $color-black-dark, 0 0 10px rgba($color-black-dark, 0.2);
+	height: 30rem;
+	margin: 50px auto;
+	padding: 2rem;
+	position: relative;
+	width: 30rem;
 
+	&__face {
+		height: 100%;
+		position: relative;
+		transform: translateY(-3px);
+		width: 100%;
+	}
 }
 
 
 .hand {
-  width: 50%;
-  height: 6px;
-  background: #000;
-  position: absolute;
-  top: 50%;
-  transform-origin: 100%;
-  transform: rotate(90deg);
+	background: $color-black-dark;
+	height: 6px;
+	position: absolute;
+	top: 50%;
+	transform: rotate(90deg);
+	transform-origin: 100%;
+	transition: all 0.5;
+	transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+	width: 50%;
 
-  transition: all 0.5;
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+	&__minute {
+		left: 15%;
+		width: 35%;
+	}
 
-  &__minute {
-    width: 35%;
-    left: 15%;
-  }
-
-  &__second {
-    height: 3px;
-    width: 45%;
-    left: 5%;
-    background: #DE243B;
-  }
-
+	&__second {
+		background: $color-red;
+		height: 3px;
+		left: 5%;
+		width: 45%;
+	}
 }
